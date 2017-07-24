@@ -56,8 +56,9 @@ class Main extends Component {
         }
       }
     });
-    
+    let that = this;
     setInterval(function(){
+      console.log("new items retrieval");
       superagent
         .get(`/getDrinks`)
         .set('Accept','text/json')
@@ -66,17 +67,17 @@ class Main extends Component {
             console.log('Oh no! error');
           } else {
             if(res.body.text){
-              this.setState({
+              that.setState({
                 drinkList: JSON.parse(res.body.text)
               })
             } else {
-              this.setState({
+              that.setState({
                 drinkList: res.body
               })
             }
 
           }
-        });); }, 3000);
+        }) }, 10000);
   }
 
   render(){
