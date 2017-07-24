@@ -54,9 +54,29 @@ class Main extends Component {
             drinkList: res.body
           })
         }
-
       }
     });
+    
+    setInterval(function(){
+      superagent
+        .get(`/getDrinks`)
+        .set('Accept','text/json')
+        .end((err,res)=>{
+          if (err || !res.ok) {
+            console.log('Oh no! error');
+          } else {
+            if(res.body.text){
+              this.setState({
+                drinkList: JSON.parse(res.body.text)
+              })
+            } else {
+              this.setState({
+                drinkList: res.body
+              })
+            }
+
+          }
+        });); }, 3000);
   }
 
   render(){

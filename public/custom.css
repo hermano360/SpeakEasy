@@ -14,22 +14,17 @@ body {
   background-color: white;
   background-size: 75% auto;
   overflow:scroll;
-  height:100vh;
+  height:100px;
 
 }
 
 .inverse-color {
   color:black;
 }
-.product-shirt {
-	width:100%;
-}
 .checkoutTable {
   font-size: 12px;
   vertical-align: top;
   line-height:2.5;
-}
-.table > tbody > tr > td {
 }
 
 .centerCell {

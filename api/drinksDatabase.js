@@ -55,4 +55,24 @@ module.exports = {
       })
     });
   }
+//   ,
+//   findPerson: function(name){
+// [    "marie",
+//   "jennifer",
+//   "sophie",
+//   "ode",
+// "hedia",
+// "sebastien",
+// "ilan",
+// "ken",
+// "pierre",
+// "alexandre",
+// "mathieu",
+// "marc alexandre",
+// "audrey",
+// "caroline",
+// "arnaud",
+// "julie",
+// "jerome"]
+//   }
 }
