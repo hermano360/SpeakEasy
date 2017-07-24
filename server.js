@@ -31,9 +31,9 @@ app.get('/getDrinks', function (req,res,next){
 })
 
 
-app.post('/deleteDrink', function (req,res,next){
-  console.log('deleting drinks');
-  drinksDatabase.delete(req.body.id, function(docs){
+app.post('/finishDrink', function (req,res,next){
+  console.log('Completing drink');
+  drinksDatabase.finishDrink(req.body.id, function(docs){
   res.json(docs)
 });
 })

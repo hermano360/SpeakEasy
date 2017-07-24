@@ -38,13 +38,13 @@ module.exports = {
       console.log(e)
     }
   },
-  delete: function(id,callback){
+  finishDrink: function(id,callback){
     var dbLink = 'mongodb://'+'hermano360'+':'+'f00tball'+'@'+'ds137090.mlab.com:37090/meadowlark';
     var query = {_id: ObjectId(id)};
     MongoClient.connect(dbLink, function(err, db) {
       console.log("Successfully connected to database");
       console.log(query);
-      db.collection('drinkQueue').deleteOne(query, function(err,res){
+      db.collection('drinkQueue').updateOne(query, {$set: { "finished": true}},function(err,res){
         if (err) {
           callback(err);
           db.close();

@@ -13,7 +13,7 @@ class DrinkScreen extends Component {
 
   handleEditClick(id){
     let that = this;
-    superagent.post('/deleteDrink')
+    superagent.post('/finishDrink')
     .set('Content-Type', 'application/json')
     .send({id:id})
     .end(function(err,res){
@@ -26,17 +26,37 @@ class DrinkScreen extends Component {
   })}
 
   render(){
-    const checkoutItemView = () =>{
+    const drinksToBeMade = () =>{
       return this.props.drinks.map((drink)=>{
-        return (
-          <Drink key={drink._id} date={drink.date} name={drink.name} drink={drink.drink} id={drink._id} handleEditClick={this.handleEditClick}/>
-        )
+        if(!drink.finished){
+          return (
+            <Drink key={drink._id} date={drink.date} name={drink.name} drink={drink.drink} id={drink._id} handleEditClick={this.handleEditClick}/>
+          )
+        } else {
+          return (
+            <div></div>
+          )
+        }
       })
     };
+    const completedDrinks = () =>{
+      return this.props.drinks.map((drink)=>{
+        if(drink.finished){
+          return (
+            <Drink key={drink._id} date={drink.date} name={drink.name} drink={drink.drink} id={drink._id} handleEditClick={this.handleEditClick}/>
+          )
+        } else {
+          return (
+            <div></div>
+          )
+        }
+      })
+    };
+
     return (
       <section id="products" className="container-fluid content-section text-center inverse-color">
         <div className="section-content">
-          <h2 className="section-title inverse-color">Drink List</h2>
+          <h2 className="section-title inverse-color">Drinks To Be Made</h2>
           <div className="checkoutTable">
             <Table responsive>
               <thead>
@@ -53,7 +73,28 @@ class DrinkScreen extends Component {
                 </tr>
               </thead>
               <tbody>
-                {checkoutItemView()}
+                {drinksToBeMade()}
+              </tbody>
+            </Table>
+          </div>
+          <h2 className="section-title inverse-color">Completed</h2>
+          <div className="checkoutTable">
+            <Table responsive>
+              <thead>
+                <tr>
+                  <th className="centerCell itemDescription">
+                    Name
+                  </th>
+                  <th className="centerCell itemDescription">
+                    Drink
+                  </th>
+                  <th className="centerCell itemDescription">
+                    <Glyphicon glyph="ok" onClick={()=>{console.log(test)}}/>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {completedDrinks()}
               </tbody>
             </Table>
           </div>

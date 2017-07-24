@@ -3,6 +3,7 @@ import superagent from 'superagent'
 import {Button,Navbar,NavItem, NavDropdown,MenuItem,Nav} from 'react-bootstrap'
 const axios = require('axios')
 import DrinkScreen from './DrinkScreen'
+import DrinkMenu from './DrinkMenu'
 
 class Main extends Component {
   constructor(){
@@ -60,8 +61,13 @@ class Main extends Component {
 
   render(){
     return (
-      <div>
-        <DrinkScreen drinks={this.state.drinkList} refreshMyDrinks={this.refreshMyDrinks}/>
+      <div style={{height:'100vh'}}>
+        <div className="col-sm-6 drink-menu-container">
+          <DrinkMenu/>
+        </div>
+        <div className="col-sm-6">
+          <DrinkScreen drinks={this.state.drinkList} refreshMyDrinks={this.refreshMyDrinks}/>
+        </div>
       </div>
     )
   }
