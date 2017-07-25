@@ -44535,14 +44535,28 @@
 	    value: function render() {
 	      var _this2 = this;
 	
-	      var namePicture = function namePicture(name) {
-	        var names = ["marie", "jennifer", "sophie", "ode", "hedia", "sebastien", "ilan", "ken", "pierre", "alexandre", "matthew", "marc alexandre", "audrey", "caroline", "arnaud", "julie", "jerome"];
+	      var names = ["marie", "jennifer", "sophie", "ode", "hedia", "sebastien", "ilan", "ken", "pierre", "alexandre", "matthew", "marc alexandre", "audrey", "caroline", "arnaud", "julie", "jerome"];
 	
-	        var value = names.indexOf(name) + 1;
+	      var namePicture = function namePicture(name) {
+	        var value = names.indexOf(name.toLowerCase()) + 1;
 	        if (value > 0) {
 	          return _react2.default.createElement('img', { src: '/Picture_Guests/' + value + '.png' });
 	        } else {
 	          return _this2.props.name;
+	        }
+	      };
+	      var drinkPicture = function drinkPicture(drink) {
+	        var drinksList = ["bellini", "pina colada", "mojito", "sex on the beach", "bloody mary", "vodkatini james bond", "martini dry", "cuba libre", "death in the afternoon", "green beast", "negroni", "mint julep", "old fashioned", "amarreto sour", "manhattan perfect", "virgin colada", "beach volley", "mary is alive", "be fifty two", "black russian", "kamikaze"];
+	        var value = 0;
+	        drinksList.forEach(function (drinkName, index) {
+	          if (drinkName == _this2.props.drink) {
+	            value = index + 1;
+	          }
+	        });
+	        if (value > 0) {
+	          return _react2.default.createElement('img', { src: '/Picture_Cocktails/' + value + '.png', style: { width: '100%' } });
+	        } else {
+	          return _this2.props.drink;
 	        }
 	      };
 	      return _react2.default.createElement(
@@ -44556,7 +44570,7 @@
 	        _react2.default.createElement(
 	          'td',
 	          { className: 'centerCell itemDescription' },
-	          this.props.drink
+	          drinkPicture(this.props.drink)
 	        ),
 	        _react2.default.createElement(
 	          'td',

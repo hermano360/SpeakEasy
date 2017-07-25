@@ -20,27 +20,27 @@ class Drink extends Component {
   render(){
 
 
-    const namePicture = (name) =>{
-      let names = [
-        "marie",
-        "jennifer",
-        "sophie",
-        "ode",
-        "hedia",
-      "sebastien",
-      "ilan",
-      "ken",
-      "pierre",
-      "alexandre",
-      "matthew",
-      "marc alexandre",
-      "audrey",
-      "caroline",
-      "arnaud",
-      "julie",
-      "jerome"];
+let names = [
+  "marie",
+  "jennifer",
+  "sophie",
+  "ode",
+  "hedia",
+"sebastien",
+"ilan",
+"ken",
+"pierre",
+"alexandre",
+"matthew",
+"marc alexandre",
+"audrey",
+"caroline",
+"arnaud",
+"julie",
+"jerome"];
 
-      let value = names.indexOf(name)+1;
+    const namePicture = (name) =>{
+      let value = names.indexOf(name.toLowerCase())+1;
       if(value > 0){
         return (
           <img src = {`/Picture_Guests/${value}.png`}/>
@@ -50,13 +50,51 @@ class Drink extends Component {
 
       }
     }
+    const drinkPicture = (drink) =>{
+      let drinksList = [
+  "bellini",
+  "pina colada",
+  "mojito",
+  "sex on the beach",
+  "bloody mary"
+  ,"vodkatini james bond"
+  ,"martini dry"
+  ,"cuba libre"
+  ,"death in the afternoon"
+  ,"green beast"
+  ,"negroni"
+  ,"mint julep"
+  ,"old fashioned"
+  ,"amarreto sour"
+  ,"manhattan perfect"
+  ,"virgin colada"
+  ,"beach volley"
+  ,"mary is alive"
+  ,"be fifty two"
+  ,"black russian",
+  "kamikaze"
+  ];
+      let value = 0;
+      drinksList.forEach((drinkName,index)=>{
+        if(drinkName == this.props.drink){
+          value = index + 1;
+        }
+      })
+      if(value > 0){
+        return (
+          <img src = {`/Picture_Cocktails/${value}.png`} style={{width:'100%'}}/>
+        )
+      } else {
+        return this.props.drink;
+      }
+    }
     return (
       <tr>
         <td className="centerCell itemDescription">
             {namePicture(this.props.name)}
         </td>
         <td className="centerCell itemDescription">
-            {this.props.drink}
+            {drinkPicture(this.props.drink)}
         </td>
         <td className="centerCell itemDescription">
             <Glyphicon glyph="unchecked" onClick={this.onEditClick}/>
