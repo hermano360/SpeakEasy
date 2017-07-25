@@ -27,29 +27,23 @@ class DrinkScreen extends Component {
 
   render(){
     const drinksToBeMade = () =>{
-      return this.props.drinks.map((drink)=>{
-        if(!drink.finished){
+      let filtered = this.props.drinks.filter((drink)=>{
+        return !drink.finished;
+      })
+      return filtered.map((drink)=>{
           return (
             <Drink key={drink._id} date={drink.date} name={drink.name} drink={drink.drink} id={drink._id} handleEditClick={this.handleEditClick}/>
           )
-        } else {
-          return (
-            <div></div>
-          )
-        }
       })
     };
     const completedDrinks = () =>{
-      return this.props.drinks.map((drink)=>{
-        if(drink.finished){
+      let filtered = this.props.drinks.filter((drink)=>{
+        return drink.finished;
+      })
+      return filtered.map((drink)=>{
           return (
             <Drink key={drink._id} date={drink.date} name={drink.name} drink={drink.drink} id={drink._id} handleEditClick={this.handleEditClick}/>
           )
-        } else {
-          return (
-            <div></div>
-          )
-        }
       })
     };
 

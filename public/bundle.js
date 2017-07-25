@@ -44357,21 +44357,19 @@
 	      var _this2 = this;
 	
 	      var drinksToBeMade = function drinksToBeMade() {
-	        return _this2.props.drinks.map(function (drink) {
-	          if (!drink.finished) {
-	            return _react2.default.createElement(_Drink2.default, { key: drink._id, date: drink.date, name: drink.name, drink: drink.drink, id: drink._id, handleEditClick: _this2.handleEditClick });
-	          } else {
-	            return _react2.default.createElement('div', null);
-	          }
+	        var filtered = _this2.props.drinks.filter(function (drink) {
+	          return !drink.finished;
+	        });
+	        return filtered.map(function (drink) {
+	          return _react2.default.createElement(_Drink2.default, { key: drink._id, date: drink.date, name: drink.name, drink: drink.drink, id: drink._id, handleEditClick: _this2.handleEditClick });
 	        });
 	      };
 	      var completedDrinks = function completedDrinks() {
-	        return _this2.props.drinks.map(function (drink) {
-	          if (drink.finished) {
-	            return _react2.default.createElement(_Drink2.default, { key: drink._id, date: drink.date, name: drink.name, drink: drink.drink, id: drink._id, handleEditClick: _this2.handleEditClick });
-	          } else {
-	            return _react2.default.createElement('div', null);
-	          }
+	        var filtered = _this2.props.drinks.filter(function (drink) {
+	          return drink.finished;
+	        });
+	        return filtered.map(function (drink) {
+	          return _react2.default.createElement(_Drink2.default, { key: drink._id, date: drink.date, name: drink.name, drink: drink.drink, id: drink._id, handleEditClick: _this2.handleEditClick });
 	        });
 	      };
 	
@@ -44497,21 +44495,22 @@
 	    value: function render() {
 	      var _this2 = this;
 	
-	      var names = ["marie", "jennifer", "sophie", "ode", "hedia", "sebastien", "ilan", "ken", "pierre", "alexandre", "matthew", "marc alexandre", "audrey", "caroline", "arnaud", "julie", "jerome"];
+	      var names = ["marie", "jennifer", "sophie", "ode", "hedia", "sebastien martin", "ilan", "ken", "pierre", "alexandre", "matthew", "marc alexandre", "sebastien gastaldi", "nicolas", 'philippe'];
 	
 	      var namePicture = function namePicture(name) {
 	        var value = names.indexOf(name.toLowerCase()) + 1;
 	        if (value > 0) {
-	          return _react2.default.createElement('img', { src: '/Picture_Guests/' + value + '.png', style: { height: '50px', width: '50px' } });
+	          return _react2.default.createElement('img', { src: '/Picture_Guests/' + value + '.png', style: { height: '40px', width: '40px' } });
 	        } else {
 	          return _this2.props.name;
 	        }
 	      };
 	      var drinkPicture = function drinkPicture(drink) {
-	        var drinksList = ["bellini", "pina colada", "mojito", "sex on the beach", "bloody mary", "vodkatini james bond", "martini dry", "cuba libre", "death in the afternoon", "green beast", "negroni", "mint julep", "old fashioned", "amarreto sour", "manhattan perfect", "virgin colada", "beach volley", "mary is alive", "be fifty two", "black russian", "kamikaze"];
+	        var drinksList = ["bellini", "pina colada", "mojito", "sex on the beach", "bloody mary", "vodkatini james bond", "martini dry", "cuba libre", "death in the afternoon", "green beast", "negroni", "mint julep", "old-fashioned", "amaretto sour", "manhattan perfect", "virgin colada", "beach volley", "mary is alive", "be 52", "black russian", "kamikaze"];
 	        var value = 0;
 	        drinksList.forEach(function (drinkName, index) {
 	          if (drinkName == _this2.props.drink) {
+	            console.log(drinkName, _this2.props.drink);
 	            value = index + 1;
 	          }
 	        });

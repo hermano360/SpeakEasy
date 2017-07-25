@@ -26,24 +26,22 @@ let names = [
   "sophie",
   "ode",
   "hedia",
-"sebastien",
+"sebastien martin",
 "ilan",
 "ken",
 "pierre",
 "alexandre",
 "matthew",
 "marc alexandre",
-"audrey",
-"caroline",
-"arnaud",
-"julie",
-"jerome"];
+"sebastien gastaldi",
+"nicolas",
+'philippe']
 
     const namePicture = (name) =>{
       let value = names.indexOf(name.toLowerCase())+1;
       if(value > 0){
         return (
-          <img src = {`/Picture_Guests/${value}.png`} style={{height:'50px', width: '50px'}}/>
+          <img src = {`/Picture_Guests/${value}.png`} style={{height:'40px', width: '40px'}}/>
         )
       } else {
         return this.props.name;
@@ -64,19 +62,20 @@ let names = [
   ,"green beast"
   ,"negroni"
   ,"mint julep"
-  ,"old fashioned"
-  ,"amarreto sour"
+  ,"old-fashioned"
+  ,"amaretto sour"
   ,"manhattan perfect"
   ,"virgin colada"
   ,"beach volley"
   ,"mary is alive"
-  ,"be fifty two"
+  ,"be 52"
   ,"black russian",
   "kamikaze"
   ];
       let value = 0;
       drinksList.forEach((drinkName,index)=>{
         if(drinkName == this.props.drink){
+          console.log(drinkName,this.props.drink);
           value = index + 1;
         }
       })
