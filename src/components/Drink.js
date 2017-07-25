@@ -75,7 +75,6 @@ let names = [
       let value = 0;
       drinksList.forEach((drinkName,index)=>{
         if(drinkName == this.props.drink){
-          console.log(drinkName,this.props.drink);
           value = index + 1;
         }
       })

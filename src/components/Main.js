@@ -66,14 +66,19 @@ class Main extends Component {
           if (err || !res.ok) {
             console.log('Oh no! error');
           } else {
-            if(res.body.text){
+            if(res.body.text && JSON.parse(res.body.text).length !== that.state.drinkList.length){
               that.setState({
                 drinkList: JSON.parse(res.body.text)
               })
             } else {
-              that.setState({
-                drinkList: res.body
-              })
+              if(res.body.length !== that.state.drinkList.length){
+                console.log('changing state');
+                that.setState({
+                  drinkList: res.body
+                })
+              } else {
+                console.log('keeping state');
+              }
             }
 
           }

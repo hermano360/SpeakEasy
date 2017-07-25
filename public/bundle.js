@@ -22329,14 +22329,19 @@
 	          if (err || !res.ok) {
 	            console.log('Oh no! error');
 	          } else {
-	            if (res.body.text) {
+	            if (res.body.text && JSON.parse(res.body.text).length !== that.state.drinkList.length) {
 	              that.setState({
 	                drinkList: JSON.parse(res.body.text)
 	              });
 	            } else {
-	              that.setState({
-	                drinkList: res.body
-	              });
+	              if (res.body.length !== that.state.drinkList.length) {
+	                console.log('changing state');
+	                that.setState({
+	                  drinkList: res.body
+	                });
+	              } else {
+	                console.log('keeping state');
+	              }
 	            }
 	          }
 	        });
@@ -44510,7 +44515,6 @@
 	        var value = 0;
 	        drinksList.forEach(function (drinkName, index) {
 	          if (drinkName == _this2.props.drink) {
-	            console.log(drinkName, _this2.props.drink);
 	            value = index + 1;
 	          }
 	        });

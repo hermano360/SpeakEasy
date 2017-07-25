@@ -23,11 +23,9 @@ module.exports = {
                 callback(err)
               } else {
                 callback(res);
-                console.log(res);
               }
             });
           } else {
-            console.log(docs);
             callback(docs);
             db.close();
           }
