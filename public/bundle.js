@@ -22350,12 +22350,12 @@
 	        { style: { height: '100vh' } },
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'col-sm-6 drink-menu-container' },
+	          { className: 'col-sm-7 drink-menu-container' },
 	          _react2.default.createElement(_DrinkMenu2.default, null)
 	        ),
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'col-sm-6' },
+	          { className: 'col-sm-5' },
 	          _react2.default.createElement(_DrinkScreen2.default, { drinks: this.state.drinkList, refreshMyDrinks: this.refreshMyDrinks })
 	        )
 	      );
@@ -44376,94 +44376,56 @@
 	      };
 	
 	      return _react2.default.createElement(
-	        'section',
-	        { id: 'products', className: 'container-fluid content-section text-center inverse-color' },
+	        'div',
+	        null,
 	        _react2.default.createElement(
-	          'div',
-	          { className: 'section-content' },
-	          _react2.default.createElement(
-	            'h2',
-	            { className: 'section-title inverse-color' },
-	            'Drinks To Be Made'
-	          ),
+	          'h2',
+	          { className: 'section-title inverse-color' },
+	          'Drinks To Be Made'
+	        ),
+	        _react2.default.createElement(
+	          'section',
+	          { id: 'products', className: 'container-fluid content-section text-center inverse-color' },
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'checkoutTable' },
+	            { className: 'section-content' },
 	            _react2.default.createElement(
-	              _reactBootstrap.Table,
-	              { responsive: true },
+	              'div',
+	              { className: 'checkoutTable' },
 	              _react2.default.createElement(
-	                'thead',
-	                null,
+	                _reactBootstrap.Table,
+	                { responsive: true },
 	                _react2.default.createElement(
-	                  'tr',
+	                  'tbody',
 	                  null,
-	                  _react2.default.createElement(
-	                    'th',
-	                    { className: 'centerCell itemDescription' },
-	                    'Name'
-	                  ),
-	                  _react2.default.createElement(
-	                    'th',
-	                    { className: 'centerCell itemDescription' },
-	                    'Drink'
-	                  ),
-	                  _react2.default.createElement(
-	                    'th',
-	                    { className: 'centerCell itemDescription' },
-	                    _react2.default.createElement(_reactBootstrap.Glyphicon, { glyph: 'ok', onClick: function onClick() {
-	                        console.log(test);
-	                      } })
-	                  )
+	                  drinksToBeMade()
 	                )
-	              ),
-	              _react2.default.createElement(
-	                'tbody',
-	                null,
-	                drinksToBeMade()
 	              )
 	            )
-	          ),
-	          _react2.default.createElement(
-	            'h2',
-	            { className: 'section-title inverse-color' },
-	            'Completed'
-	          ),
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'h2',
+	          { className: 'section-title inverse-color' },
+	          'Completed Drinks'
+	        ),
+	        _react2.default.createElement(
+	          'section',
+	          { id: 'products', className: 'container-fluid content-section text-center inverse-color' },
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'checkoutTable' },
+	            { className: 'section-content' },
 	            _react2.default.createElement(
-	              _reactBootstrap.Table,
-	              { responsive: true },
+	              'div',
+	              { className: 'checkoutTable' },
 	              _react2.default.createElement(
-	                'thead',
-	                null,
+	                _reactBootstrap.Table,
+	                { responsive: true },
 	                _react2.default.createElement(
-	                  'tr',
+	                  'tbody',
 	                  null,
-	                  _react2.default.createElement(
-	                    'th',
-	                    { className: 'centerCell itemDescription' },
-	                    'Name'
-	                  ),
-	                  _react2.default.createElement(
-	                    'th',
-	                    { className: 'centerCell itemDescription' },
-	                    'Drink'
-	                  ),
-	                  _react2.default.createElement(
-	                    'th',
-	                    { className: 'centerCell itemDescription' },
-	                    _react2.default.createElement(_reactBootstrap.Glyphicon, { glyph: 'ok', onClick: function onClick() {
-	                        console.log(test);
-	                      } })
-	                  )
+	                  completedDrinks()
 	                )
-	              ),
-	              _react2.default.createElement(
-	                'tbody',
-	                null,
-	                completedDrinks()
 	              )
 	            )
 	          )
@@ -44540,7 +44502,7 @@
 	      var namePicture = function namePicture(name) {
 	        var value = names.indexOf(name.toLowerCase()) + 1;
 	        if (value > 0) {
-	          return _react2.default.createElement('img', { src: '/Picture_Guests/' + value + '.png' });
+	          return _react2.default.createElement('img', { src: '/Picture_Guests/' + value + '.png', style: { height: '50px', width: '50px' } });
 	        } else {
 	          return _this2.props.name;
 	        }

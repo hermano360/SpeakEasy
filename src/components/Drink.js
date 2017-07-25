@@ -43,7 +43,7 @@ let names = [
       let value = names.indexOf(name.toLowerCase())+1;
       if(value > 0){
         return (
-          <img src = {`/Picture_Guests/${value}.png`}/>
+          <img src = {`/Picture_Guests/${value}.png`} style={{height:'50px', width: '50px'}}/>
         )
       } else {
         return this.props.name;

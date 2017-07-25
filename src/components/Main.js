@@ -83,10 +83,10 @@ class Main extends Component {
   render(){
     return (
       <div style={{height:'100vh'}}>
-        <div className="col-sm-6 drink-menu-container">
+        <div className="col-sm-7 drink-menu-container">
           <DrinkMenu/>
         </div>
-        <div className="col-sm-6">
+        <div className="col-sm-5">
           <DrinkScreen drinks={this.state.drinkList} refreshMyDrinks={this.refreshMyDrinks}/>
         </div>
       </div>

@@ -54,45 +54,24 @@ class DrinkScreen extends Component {
     };
 
     return (
+      <div>
+        <h2 className="section-title inverse-color">Drinks To Be Made</h2>
       <section id="products" className="container-fluid content-section text-center inverse-color">
         <div className="section-content">
-          <h2 className="section-title inverse-color">Drinks To Be Made</h2>
           <div className="checkoutTable">
             <Table responsive>
-              <thead>
-                <tr>
-                  <th className="centerCell itemDescription">
-                    Name
-                  </th>
-                  <th className="centerCell itemDescription">
-                    Drink
-                  </th>
-                  <th className="centerCell itemDescription">
-                    <Glyphicon glyph="ok" onClick={()=>{console.log(test)}}/>
-                  </th>
-                </tr>
-              </thead>
               <tbody>
                 {drinksToBeMade()}
               </tbody>
             </Table>
           </div>
-          <h2 className="section-title inverse-color">Completed</h2>
+        </div>
+      </section>
+      <h2 className="section-title inverse-color">Completed Drinks</h2>
+      <section id="products" className="container-fluid content-section text-center inverse-color">
+        <div className="section-content">
           <div className="checkoutTable">
             <Table responsive>
-              <thead>
-                <tr>
-                  <th className="centerCell itemDescription">
-                    Name
-                  </th>
-                  <th className="centerCell itemDescription">
-                    Drink
-                  </th>
-                  <th className="centerCell itemDescription">
-                    <Glyphicon glyph="ok" onClick={()=>{console.log(test)}}/>
-                  </th>
-                </tr>
-              </thead>
               <tbody>
                 {completedDrinks()}
               </tbody>
@@ -100,6 +79,7 @@ class DrinkScreen extends Component {
           </div>
         </div>
       </section>
+      </div>
     )
   }
 }

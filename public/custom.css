@@ -8,19 +8,22 @@ body {
 /*product section*/
 
 #products {
-  display: table;
   text-align: center;
-  color: black;
-  background-color: white;
   background-size: 75% auto;
   overflow:scroll;
-  height:100px;
-
+  height:40vh;
 }
 
-.inverse-color {
-  color:black;
+.section-title {
+  height: 7vh;
+  color:white;
+  text-align: center;
+  margin:0;
+  vertical-align: middle;
+  font-family: 'Pacifico', cursive;
+  font-size: 30px;
 }
+
 .checkoutTable {
   font-size: 12px;
   vertical-align: top;
