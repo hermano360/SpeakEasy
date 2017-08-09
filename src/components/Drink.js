@@ -20,33 +20,9 @@ class Drink extends Component {
   render(){
 
 
-let names = [
-  "marie",
-  "jennifer",
-  "sophie",
-  "ode",
-  "hedia",
-"sebastien martin",
-"ilan",
-"ken",
-"pierre",
-"alexandre",
-"matthew",
-"marc alexandre",
-"sebastien gastaldi",
-"nicolas",
-'philippe']
 
     const namePicture = (name) =>{
-      let value = names.indexOf(name.toLowerCase())+1;
-      if(value > 0){
-        return (
-          <img src = {`/Picture_Guests/${value}.png`} style={{height:'40px', width: '40px'}}/>
-        )
-      } else {
         return this.props.name;
-
-      }
     }
     const drinkPicture = (drink) =>{
       let drinksList = [

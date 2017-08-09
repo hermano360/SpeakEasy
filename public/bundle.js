@@ -44500,15 +44500,8 @@
 	    value: function render() {
 	      var _this2 = this;
 	
-	      var names = ["marie", "jennifer", "sophie", "ode", "hedia", "sebastien martin", "ilan", "ken", "pierre", "alexandre", "matthew", "marc alexandre", "sebastien gastaldi", "nicolas", 'philippe'];
-	
 	      var namePicture = function namePicture(name) {
-	        var value = names.indexOf(name.toLowerCase()) + 1;
-	        if (value > 0) {
-	          return _react2.default.createElement('img', { src: '/Picture_Guests/' + value + '.png', style: { height: '40px', width: '40px' } });
-	        } else {
-	          return _this2.props.name;
-	        }
+	        return _this2.props.name;
 	      };
 	      var drinkPicture = function drinkPicture(drink) {
 	        var drinksList = ["bellini", "pina colada", "mojito", "sex on the beach", "bloody mary", "vodkatini james bond", "martini dry", "cuba libre", "death in the afternoon", "green beast", "negroni", "mint julep", "old-fashioned", "amaretto sour", "manhattan perfect", "virgin colada", "beach volley", "mary is alive", "be 52", "black russian", "kamikaze"];
