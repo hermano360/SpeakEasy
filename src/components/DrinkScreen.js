@@ -2,29 +2,18 @@ import React, { Component } from 'react';
 import {Button,Navbar,NavItem, NavDropdown,MenuItem,Nav, Carousel,OverlayTrigger, Popover, Table, Glyphicon} from 'react-bootstrap';
 import superagent from 'superagent';
 import Drink from './Drink'
+var {connect} = require('react-redux');
+var actions = require('../actions/actions');
 
 class DrinkScreen extends Component {
   constructor(){
     super()
-    this.state = {
-    }
-    this.handleEditClick = this.handleEditClick.bind(this);
   }
-
-  handleEditClick(id){
-    let that = this;
-    superagent.post('/finishDrink')
-    .set('Content-Type', 'application/json')
-    .send({id:id})
-    .end(function(err,res){
-    if (err || !res.ok) {
-      console.log('Oh no! error');
-    } else {
-      that.props.refreshMyDrinks();
-    }
-
-  })}
-
+  componentDidMount(){
+    setInterval(()=>{
+        this.props.dispatch(actions.retrieveDrinks())
+    }, 5000);
+  }
   render(){
     const drinksToBeMade = () =>{
       let filtered = this.props.drinks.filter((drink)=>{
@@ -32,7 +21,7 @@ class DrinkScreen extends Component {
       })
       return filtered.map((drink)=>{
           return (
-            <Drink key={drink._id} date={drink.date} name={drink.name} drink={drink.drink} id={drink._id} handleEditClick={this.handleEditClick}/>
+            <Drink key={drink._id} date={drink.date} name={drink.name} drink={drink.drink} id={drink._id}/>
           )
       })
     };
@@ -42,11 +31,10 @@ class DrinkScreen extends Component {
       })
       return filtered.map((drink)=>{
           return (
-            <Drink key={drink._id} date={drink.date} name={drink.name} drink={drink.drink} id={drink._id} handleEditClick={this.handleEditClick}/>
+            <Drink key={drink._id} date={drink.date} name={drink.name} drink={drink.drink} id={drink._id}/>
           )
       })
     };
-
     return (
       <div>
         <h2 className="section-title inverse-color">Drinks To Be Made</h2>
@@ -78,4 +66,6 @@ class DrinkScreen extends Component {
   }
 }
 
-export default DrinkScreen
+export default connect(
+  state=>state
+)(DrinkScreen);

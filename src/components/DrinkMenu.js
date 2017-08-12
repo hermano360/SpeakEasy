@@ -3,9 +3,6 @@ import React, { Component } from 'react';
 class DrinkMenu extends Component {
   constructor(){
     super()
-    this.state = {
-    }
-    //this.handleEditClick = this.handleEditClick.bind(this);
   }
 
 
